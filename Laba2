@@ -1,0 +1,240 @@
+#2
+import turtle
+turtle.shape('turtle')
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.right(90)
+turtle.forward(50)
+turtle.right(90)
+turtle.forward(50)
+turtle.exitonclick()
+
+#3
+import turtle
+turtle.shape('turtle')
+for i in range(4):
+    turtle.forward(50)
+    turtle.left(90)
+turtle.exitonclick()
+
+#4
+import turtle
+turtle.shape('turtle')
+n = 36
+for i in range(n):
+    turtle.forward(20)
+    turtle.left(10)
+turtle.exitonclick()
+
+#5
+import turtle
+turtle.shape("turtle")
+x = 1
+y = 20
+while x <= 10:
+    turtle.left(225)
+    turtle.penup()
+    turtle.forward((y**2/2)**0.5)
+    turtle.left(135)
+    turtle.pendown()
+    turtle.forward(y*x)
+    turtle.left(90)
+    turtle.forward(y * x)
+    turtle.left(90)
+    turtle.forward(y*x)
+    turtle.left(90)
+    turtle.forward(y*x)
+    turtle.left(90)
+    x += 1
+turtle.exitonclick()
+
+#6
+import turtle
+turtle.shape('turtle')
+n = 12
+for i in range(n):
+    turtle.forward(50)
+    turtle.stamp()
+    turtle.left(180)
+    turtle.forward(50)
+    turtle.left(150)
+turtle.exitonclick()
+
+#7
+from turtle import Turtle, Screen
+import numpy as np
+from math import pi, sin, cos
+from random import randint, random
+R = 180  
+screen = Screen()
+WIDTH, HEIGHT = screen.window_width(), screen.window_height()
+turtle = Turtle(visible=False)
+turtle.speed('fastest')  
+turtle.up()
+for _ in range(1):
+    x = randint(R - WIDTH//2, WIDTH//2 - R)
+    y = randint(R - HEIGHT//2, HEIGHT//2 - R)
+    turtle.goto(x, y)
+    turtle.down()
+    for i in range(200):
+        t = i / 20 * np.pi
+        dx = (1 + 5 * t) * np.cos(t)
+        dy = (1 + 5 * t) * np.sin(t)
+        turtle.goto(x + dx, y + dy)
+    turtle.up()
+screen.exitonclick()
+
+#8
+import turtle
+turtle.shape('turtle')
+n = 40
+for i in range(1,n):
+    turtle.forward(10*i)
+    turtle.left(90)
+    
+#9
+import turtle
+import math
+turtle.shape('turtle')
+def more_agles(n,m): 
+    q=360/n
+    while n>0:
+        
+        turtle.left(q)
+        turtle.forward(m)
+        n-=1
+n=3
+r=10 
+while n<13:
+    m=2*r*math.sin(math.pi/n) #считаем размер стороны многоугольника (a=2Rsin (360/2n))
+    x=(180-360/n)/2
+    turtle.left(x)
+    more_agles(n,m)
+    turtle.right(x)
+    turtle.penup()
+    turtle.forward(10)
+    turtle.pendown()
+    n+=1
+    r+=10 
+#10
+import turtle
+turtle.shape('turtle')
+def f(R, t):
+    for i in range(36):
+        turtle.forward(R)
+        if t == "left":
+            turtle.left(10)
+        if t == "right":
+            turtle.right(10)
+n = 6 #n = int(input())
+r = 10 #r = int(input())
+c = 1
+for i in range(2*n):
+    if i % 2 == 0:
+        f(r, "left")
+        c += 1
+    else:
+        f(r, "right")
+        c += 1
+    if c % 3 == 0:
+        c = 1
+        turtle.left(360/n / 2)
+#11
+import turtle
+turtle.shape('turtle')
+turtle.left(90)
+def f(R, t):
+    for i in range(36):
+        turtle.forward(R)
+        if t == "left":
+            turtle.left(10)
+        if t == "right":
+            turtle.right(10)
+n = 4 #n = int(input())
+r = 10
+c = 1
+for i in range(2*n):
+    if i % 2 == 0:
+        f(r, "left")
+        c += 1
+    else:
+        f(r, "right")
+        c += 1
+    if c % 3 == 0:
+        r += 5
+        c = 1
+#12
+import turtle
+turtle.shape('turtle')
+turtle.left(90)
+def f(R, t):
+    for i in range(18):
+        turtle.forward(R)
+        if t == "left":
+            turtle.left(10)
+        if t == "right":
+            turtle.right(10)
+n = 4 #n = int(input())
+r = 10
+for i in range(2*n):
+    if i % 2 == 0:
+        f(r, "right")
+    else:
+        f(r/5, "right")
+#13
+import turtle
+def f(R):
+    for i in range(36):
+        turtle.forward(R)
+        turtle.left(10)
+turtle.shape('turtle')    
+turtle.color('black')     
+turtle.up()               
+turtle.goto (100, 0)      
+turtle.left(90)           
+turtle.down()             
+turtle.fillcolor('yellow')
+turtle.begin_fill()       
+turtle.circle(100)        
+turtle.end_fill()         
+turtle.up()               
+turtle.goto(-30, 50)      
+turtle.down()             
+turtle.fillcolor('blue')  
+turtle.begin_fill()       
+turtle.circle(15)         
+turtle.end_fill()         
+turtle.up()               
+turtle.goto(60, 50)       
+turtle.down()             
+turtle.fillcolor('blue')  
+turtle.begin_fill()       
+turtle.circle(15)         
+turtle.end_fill()         
+turtle.up()               
+turtle.goto(0, 30)        
+turtle.down()             
+turtle.color('black')     
+turtle.pensize(8)         
+turtle.left(180)          
+turtle.forward(50)        
+turtle.up()               
+turtle.goto(70, -10)      
+turtle.color('red')       
+turtle.down()             
+turtle.circle(-70, 180, 30)
+
+#14
+import turtle
+turtle.shape('turtle')
+def stars(n):
+    turtle.left(180 - (180 / n))
+    turtle.forward(200)
+n = int(input()) #Вводим число вершин
+x = 1
+while x <= n:
+    stars(n)
+    x += 1
