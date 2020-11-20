@@ -1,0 +1,69 @@
+#Laba 1
+#1
+import numpy as np
+def f(x):
+    a = 1 / (np.e**np.sin(x) + 1)
+    b = 5/4 + 1 / x**15
+    c = a / b
+    return np.log(c) / np.log(1 + x**2)
+print("Значение в 1", f(1))
+print("Значение в 10", f(10))
+print("Значение в 1000", f(1000))
+
+#2
+import matplotlib.pyplot as plt
+import numpy as np
+X = np.linspace(-3,4,100)
+Y = X**2 - X - 6 
+plt.plot(X, Y, label='y(x) = $x^2 - x - 6$')  
+ax = plt.gca()
+ax.spines['left'].set_position('center')
+ax.spines['bottom'].set_position('center')
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+plt.grid(True)
+plt.legend(loc='upper left', fontsize=12)
+ax.set_xlabel("f(x)", fontsize=14, color='black', labelpad=-150) 
+ax.set_ylabel("x", fontsize=14, color='black', labelpad=-180, rotation=0)
+plt.savefig('figure_with_legend.png')
+plt.show()
+
+#4
+import matplotlib.pyplot as plt
+import numpy as np
+with plt.xkcd():
+    x = np.linspace(-10,10,100)
+    function = input()
+    f = eval(function)
+    plt.plot(x, f, label='$f(x)$') 
+    ax = plt.gca()
+    ax.spines['left'].set_position('center')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    plt.grid(True)
+    plt.legend(loc='upper left', fontsize=12)
+    ax.set_xlabel("f(x)", fontsize=14, color='black', labelpad=-260) 
+    ax.set_ylabel("x", fontsize=14, color='black', labelpad=-180, rotation=0)
+    ax.yaxis.set_label_coords(1.05, -0.025)
+    plt.savefig('figure_with_legend.png')
+    plt.show()
+    
+#5
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.array([1, 2, 3, 4, 5, 6])
+y = np.array([1, 1.42, 1.76, 2, 2.24, 2.5])
+p, v = np.polyfit(x, y, deg=1, cov=True)
+a, b = np.polyfit(x, y, deg=2, cov=True)
+z = lambda x : p[0]*x + p[1]
+f = lambda x : a[0]*x**2 + a[1]*x + a[2]
+plt.errorbar(x, z(x), xerr=0.05, yerr=0.1, label = "z(x)")
+plt.errorbar(x, f(x), xerr=0.05, yerr=0.1, label = "f(x)")
+ax = plt.gca()
+plt.grid(True)
+plt.legend(loc='upper left', fontsize=12)
+ax.set_xlabel("f(x), g(x)", fontsize=14, color='black', labelpad=-260) 
+ax.set_ylabel("x", fontsize=14, color='black', labelpad=-180, rotation=0)
+ax.yaxis.set_label_coords(1.05, -0.025)
+plt.savefig('figure_with_legend.png')
+plt.show()
