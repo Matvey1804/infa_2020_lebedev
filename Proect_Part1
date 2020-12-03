@@ -1,0 +1,139 @@
+import sys
+import os
+from PyQt5 import QtCore, QtWidgets, QtGui
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+import pygame
+class Ui_MainWindow(object):
+
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(901, 900)
+
+
+        QToolTip.setFont(QFont('Times', 14))
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(10, 10, 301, 41))
+        self.label.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label.setObjectName("label")
+        self.label.setToolTip("Here you can view the weather at your destination")
+        self.label.setStyleSheet("QLabel{\n"
+                                 "font: 20pt \"Times\";\n"
+                                 "color:#00FFFF ;\n"
+                                 "border: none;\n"
+                                 "}")
+
+        self.label2 = QtWidgets.QLabel(self.centralwidget)
+        self.label2.setGeometry(QtCore.QRect(10, 60, 231, 41))
+        self.label2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label2.setObjectName("label")
+        self.label2.setToolTip("Here you can view the distance at your destination")
+        self.label2.setStyleSheet("QLabel{\n"
+                                 "font: 20pt \"Times\";\n"
+                                 "color:#00FFFF ;\n"
+                                 "border: none;\n"
+                                 "}")
+
+        self.label3 = QtWidgets.QLabel(self.centralwidget)
+        self.label3.setGeometry(QtCore.QRect(10, 110, 171, 41))
+        self.label3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label3.setObjectName("label")
+        self.label3.setToolTip("Here you can view the price at your destination")
+        self.label3.setStyleSheet("QLabel{\n"
+                                 "font: 20pt \"Times\";\n"
+                                 "color:#00FFFF ;\n"
+                                 "border: none;\n"
+                                 "}")
+
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(300, 350, 331, 41))
+        self.pushButton.setToolTip("Click here to build path")
+        self.pushButton.setStyleSheet("QPushButton{\n"
+"font: 22pt \"Times\";\n"
+"color:#00FFFF ;\n"
+"background-color: rgba(0, 50, 50, 0.6);\n"
+"border: none ;\n"
+"}\n"
+"QPushButton:hover{\n"
+"color:#7CFC00 ;\n"
+"background-color: rgba(0, 50, 50, 0.5);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"color: #CD853F ;\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
+
+        self.showButton = QtWidgets.QPushButton(self.centralwidget)
+        self.showButton.setGeometry(QtCore.QRect(430, 450, 131, 41))
+        self.showButton.setStyleSheet("QPushButton{\n"
+                                       "font: 22pt \"Times\";\n"
+                                       "color:#00FFFF ;\n"
+                                       "min-width: 90px; \n"
+                                       "max-width: 90px; \n"
+                                       "min-height: 90px; \n"
+                                       "max-height: 90px; \n"
+                                       "border-radius: 45px; \n"
+                                       "background-color: rgba(0, 50, 50, 0.7);\n"
+                                       "border: none ;\n"
+                                       "}\n"
+                                       "QPushButton:hover{\n"
+                                       "color:#7CFC00 ;\n"
+                                       "background-color: rgba(0, 50, 50, 0.6);\n"
+                                       "}\n"
+                                       "QPushButton:pressed{\n"
+                                       "color: #CD853F ;\n"
+                                       "}")
+        self.showButton.setObjectName("showButton")
+
+        self.pushButton2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton2.setGeometry(QtCore.QRect(300, 400, 331, 41))
+        self.pushButton2.setToolTip("Click here to build path")
+        self.pushButton2.setStyleSheet("QPushButton{\n"
+                                      "font: 22pt \"Times\";\n"
+                                      "color:#00FFFF ;\n"
+                                      "background-color: rgba(0, 50, 50, 0.6);\n"
+                                      "border: none ;\n"
+                                      "}\n"
+                                      "QPushButton:hover{\n"
+                                      "color:#7CFC00 ;\n"
+                                      "background-color: rgba(0, 50, 50, 0.5);\n"
+                                      "}\n"
+                                      "QPushButton:pressed{\n"
+                                      "color: #CD853F ;\n"
+                                      "}")
+        self.pushButton2.setObjectName("pushButton2")
+
+        self.radioButton = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton.setGeometry(QtCore.QRect(780, 10, 100, 20))
+        self.radioButton.setObjectName("radioButton")
+        self.radioButton.setToolTip("Do you want to listen the radio?")
+        self.radioButton.setStyleSheet("QRadioButton{\n"
+                                 "font: 15pt \"Times\";\n"
+                                 "}")
+
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label.setText(_translate("MainWindow", " "))
+        self.pushButton.setText(_translate("MainWindow", "Path"))
+        self.pushButton2.setText(_translate("MainWindow", "Tour"))
+        self.radioButton.setText(_translate("MainWindow", "RadioButton"))
+        self.showButton.setText(_translate("MainWindow", "Show"))
+        self.label2.setText(_translate("MainWindow", " "))
+        self.label3.setText(_translate("MainWindow", " "))
